@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        let results;
+        let result = arr.filter((number) => number % 2 === 1);
+        let sum = result.reduce((prev, next) => prev + next, 0);
+        let min = result.sort((a, b) => a - b);
+
+        results = `${sum}\n${min[0]}`;
+        return results;
+      }
+
+      arr = [12, 77, 38, 41, 53, 92, 85];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>
