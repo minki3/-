@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        // 정규식을 이용한 풀이
+        result = s.replace(/A/g, "#");
+        return result;
+
+        // 반복문을 이용한 풀이
+        //   let result = [];
+        //   s.split("").map((item) => {
+        //     if (item === "A") {
+        //       result.push("#");
+        //     } else {
+        //       result.push(item);
+        //     }
+        //   });
+        //   return result.join("");
+      }
+
+      let str = "BANANA";
+      console.log(solution(str));
+    </script>
+  </body>
+</html>

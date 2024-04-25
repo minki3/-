@@ -1,0 +1,58 @@
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        let result = [];
+        let sum = arr.reduce((prev, next) => prev + next, 0);
+        for (let i = 0; i < arr.length; i++) {
+          for (let j = i + 1; j < arr.length; j++) {
+            if (sum - (arr[i] + arr[j]) === 100) {
+              result.push(
+                arr
+                  .filter((item) => item !== arr[i])
+                  .filter((item) => item !== arr[j])
+              );
+            }
+          }
+        }
+        return result;
+      }
+
+      let arr = [22, 7, 21, 19, 10, 15, 25, 8, 13];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html> -->
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        let result = arr;
+        let flag = 0;
+        let sum = arr.reduce((prev, next) => prev + next, 0);
+        for (let i = 0; i < arr.length; i++) {
+          for (let j = i + 1; j < arr.length; j++) {
+            if (sum - (arr[i] + arr[j]) === 100) {
+              result.splice([j], 1);
+              result.splice([i], 1);
+              flag = 1;
+            }
+          }
+          if (flag === 1) break;
+        }
+        return result;
+      }
+
+      let arr = [22, 7, 21, 19, 10, 15, 25, 8, 13];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>

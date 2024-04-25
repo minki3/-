@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        // let result = [];
+        // s.forEach((item) => {
+        //   if (!result.includes(item)) {
+        //     result.push(item);
+        //   }
+        // });
+        // return result;
+
+        let result = s.filter((item, idx) => s.indexOf(s[idx]) === idx);
+        return result;
+      }
+      let str = ["good", "time", "good", "time", "student"];
+      console.log(solution(str));
+    </script>
+  </body>
+</html>
