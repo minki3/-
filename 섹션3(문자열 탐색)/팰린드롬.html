@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let reg = /[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/0-9 ]/gim;
+        let change = s.toLowerCase().replace(reg, "");
+        console.log(change);
+        let result = change.split("").reverse().join("");
+        if (result === change) {
+          return "YES";
+        } else {
+          return "NO";
+        }
+      }
+
+      let str = "found7, time: study; Yduts; emit, 7Dnuof";
+      console.log(solution(str));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s, t) {
+        let result = [];
+        let test = [];
+        let count = 1000;
+        for (let i = 0; i < s.length; i++) {
+          if (s[i] === t) {
+            count = 0;
+            result.push(count);
+          } else {
+            count++;
+            result.push(count);
+          }
+        }
+        count = 1000;
+        for (let j = s.length - 1; j >= 0; j--) {
+          if (s[j] === t) {
+            count = 0;
+          } else {
+            count++;
+            if (result[j] > count) {
+              result[j] = count;
+            }
+          }
+        }
+        return result;
+      }
+
+      let str = "teachermode";
+      console.log(solution(str, "e"));
+    </script>
+  </body>
+</html>

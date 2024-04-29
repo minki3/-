@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(str) {
+        let result = "";
+        for (let i = 0; i < str.length; i++) {
+          if (Number(str[i]) || Number(str[i]) === 0) {
+            result += str[i];
+          }
+        }
+        return Number(result);
+      }
+
+      solution("g0en2T0s8eSoft");
+    </script>
+  </body>
+</html>
