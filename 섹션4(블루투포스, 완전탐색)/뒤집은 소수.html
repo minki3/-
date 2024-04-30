@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function isPrime(number) {
+        if (number <= 1) {
+          return false; // 1 또는 음수는 소수가 아님
+        }
+        for (let i = 2; i <= Math.sqrt(number); i++) {
+          if (number % i === 0) {
+            return false; // 나누어 떨어지는 수가 있으면 소수가 아님
+          }
+        }
+        return true; // 나누어 떨어지는 수가 없으면 소수임
+      }
+
+      function solution(arr) {
+        let result = [];
+        let change = arr.map((item) =>
+          item.toString().split("").reverse().join("")
+        );
+        for (let i = 0; i < change.length; i++) {
+          let decimal = Number(change[i]);
+          if (decimal === 1) break;
+          if (isPrime(decimal)) result.push(decimal);
+        }
+        return result;
+      }
+
+      let arr = [32, 55, 62, 20, 250, 370, 200, 30, 100];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>

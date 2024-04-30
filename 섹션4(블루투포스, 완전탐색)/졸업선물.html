@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(m, product) {
+        for (let i = 0; i < product.length; i++) {
+          // console.log(product.length);
+          console.log(i, product[i][0] / 2 + product[i][1]);
+          console.log(i, product[i][0] + product[i][1]);
+        }
+      }
+
+      let arr = [
+        [6, 6],
+        [2, 2],
+        [4, 3],
+        [4, 5],
+        [10, 3],
+      ];
+      console.log(arr[3][0]);
+      console.log(solution(28, arr));
+    </script>
+  </body>
+</html>

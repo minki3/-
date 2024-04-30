@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n, arr) {
+        let result = "";
+        let max = 0;
+        for (let i = 0; i < n; i++) {
+          let change = arr[i].toString().split("");
+          let sum = change.reduce(
+            (prev, next) => Number(prev) + Number(next),
+            0
+          );
+          if (max < sum) {
+            max = sum;
+            result = arr[i];
+          }
+          if (max === sum && arr[i] > result) {
+            max = sum;
+            result = arr[i];
+          }
+        }
+        return result;
+      }
+
+      let arr = [128, 460, 603, 40, 521, 137, 123];
+      console.log(solution(7, arr));
+    </script>
+  </body>
+</html>
