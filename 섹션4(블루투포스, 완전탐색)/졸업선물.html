@@ -6,11 +6,24 @@
   <body>
     <script>
       function solution(m, product) {
+        let answer = 0;
+        product.sort((a, b) => a[0] + a[1] - (b[0] + b[1]));
         for (let i = 0; i < product.length; i++) {
-          // console.log(product.length);
-          console.log(i, product[i][0] / 2 + product[i][1]);
-          console.log(i, product[i][0] + product[i][1]);
+          let money = m - (product[i][0] / 2 + product[i][1]);
+          let count = 1;
+
+          for (let j = 0; j < product.length; j++) {
+            if (product[j] !== product[i]) {
+              if (product[j][0] + product[j][1] > money) break;
+              if (product[j][0] + product[j][1] <= money) {
+                money -= product[j][0] + product[j][1];
+                count++;
+              }
+            }
+            answer = Math.max(answer, count);
+          }
         }
+        return answer;
       }
 
       let arr = [
@@ -20,7 +33,6 @@
         [4, 5],
         [10, 3],
       ];
-      console.log(arr[3][0]);
       console.log(solution(28, arr));
     </script>
   </body>
