@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(str1, str2) {
+        let hsA = new Map();
+        let hsB = new Map();
+        let answer = "";
+        for (let x of str1) {
+          if (hsA.has(x)) {
+            let sum = hsA.get(x) + 1;
+            hsA.set(x, sum);
+          } else {
+            hsA.set(x, 1);
+          }
+        }
+        for (let x of str2) {
+          if (hsB.has(x)) {
+            let sum = hsB.get(x) + 1;
+            hsB.set(x, sum);
+          } else {
+            hsB.set(x, 1);
+          }
+        }
+        for (let [key, value] of hsA) {
+          if (hsB.has(key) && hsB.get(key) === value) {
+            answer = "yes";
+          } else {
+            answer = "no";
+          }
+        }
+        return answer;
+      }
+
+      let a = "abaCC";
+
+      let b = "Caaab";
+      console.log(solution(a, b));
+    </script>
+  </body>
+</html>

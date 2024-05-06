@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(people, limit) {
+        let result = 0;
+        let sum = 0;
+        let n = people.length;
+        let s = 0;
+        people.sort((a, b) => b - a);
+        for (let e = 0; e < n; e++) {
+          sum += people[e];
+
+          if (sum <= limit) {
+            result++;
+          }
+
+          while (sum >= limit) {
+            sum -= people[s];
+            s++;
+            // console.log(people[e], people[s]);
+            if (sum <= result) {
+              result++;
+            }
+          }
+        }
+
+        return result;
+      }
+      console.log(solution([70, 50, 80, 50], 100));
+    </script>
+  </body>
+</html>
