@@ -26,28 +26,36 @@
         let n = map2.length;
 
         for (let i = 0; i < map2.length; i++) {
-          hsb.set(map2[i], 1);
-        }
-        for (let e = n - 1; e < map1.length; e++) {
-          hsa.set(map1[s], 1);
-          hsa.set(map1[s + 1], 1);
-          hsa.set(map1[e], 1);
-          console.log(hsa);
-          if (compare(hsa, hsb)) {
-            count++;
-            hsa.delete(map1[s]);
-            hsa.delete(map1[s + 1]);
-            hsa.delete(map1[e]);
-            s++;
+          if (hsb.has(map2[i])) {
+            hsb.set(map2[i], hsb.get(map2[i]) + 1);
           } else {
-            hsa.delete(map1[s]);
-            hsa.delete(map1[s + 1]);
-            hsa.delete(map1[e]);
-            s++;
+            hsb.set(map2[i], 1);
+          }
+        }
+        for (let i = 0; i < n - 1; i++) {
+          if (hsa.has(map1[i])) {
+            hsa.set(map1[i], hsa.get(map1[i]) + 1);
+          } else {
+            hsa.set(map1[i], 1);
           }
         }
 
-        console.log(count);
+        for (let e = n - 1; e < map1.length; e++) {
+          if (hsa.has(map1[e])) {
+            hsa.set(map1[e], hsa.get(map1[e]) + 1);
+          } else {
+            hsa.set(map1[e], 1);
+          }
+
+          if (compare(hsa, hsb)) {
+            count++;
+          }
+          hsa.set(map1[s], hsa.get(map1[s]) - 1);
+          if (hsa.get(map1[s]) === 0) hsa.delete(map1[s]);
+          s++;
+        }
+
+        return count;
       }
 
       let a = "bacaAacba";
