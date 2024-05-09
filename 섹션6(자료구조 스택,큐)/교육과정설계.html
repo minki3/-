@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(need, plan) {
+        let queue = [];
+        let needQ = [];
+        for (let x of need) {
+          needQ.push(x);
+        }
+
+        for (let x of plan) {
+          if (x === needQ[0]) {
+            queue.push(x);
+            needQ.shift();
+          } else if (!needQ.includes(x)) {
+            queue.push(x);
+          } else {
+            return "NO";
+          }
+        }
+
+        if (needQ.length !== 0) return "NO";
+        return "YES";
+      }
+
+      let a = "CBA";
+      let b = "CBSAGE";
+      console.log(solution(a, b));
+    </script>
+  </body>
+</html>
