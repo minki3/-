@@ -1,0 +1,49 @@
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(times) {
+        let result = [];
+        let count = 0;
+        let max = 0;
+
+      times.forEach((item)=>{
+          result.push([item[0],"S"])
+          result.push([item[1],"E"])
+        });
+
+        result.sort((a,b)=>{
+          if(a[0] ===b[0]){
+            return a[1].charCodeAt() -b[1].charCodeAt()
+          } else{
+            return a[0]-b[0]
+          }
+        })
+        result.forEach((item)=>{
+          if(item[1] === "S"){
+            count++
+          } else if(item[1] === "E"){
+            count--
+          }
+        
+          if(count >max){
+            max = count
+          }
+        })
+        console.log(result)
+        return max
+      }
+
+      let arr = [
+        [14, 18],
+        [12, 15],
+        [15, 20],
+        [20, 30],
+        [5, 15],
+      ];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>
