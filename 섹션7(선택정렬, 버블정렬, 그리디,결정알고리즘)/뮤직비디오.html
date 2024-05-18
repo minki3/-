@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function count(capacity, mid) {
+        let answer = 0;
+        let sum = 0;
+        for (let i = 0; i < capacity.length; i++) {
+          if (sum + capacity[i] > mid) {
+            answer++;
+            sum = 0;
+            sum += capacity[i];
+          } else {
+            sum += capacity[i];
+          }
+        }
+        if (sum <= mid) {
+          answer++;
+        }
+        return answer;
+      }
+
+      function solution(songs, capacity) {
+        let result;
+        let s = capacity[capacity.length - 1];
+        let e = capacity.reduce((next, prev) => next + prev, 0);
+        while (s <= e) {
+          let mid = parseInt((s + e) / 2);
+
+          if (count(capacity, mid) === songs) {
+            result = mid;
+            break;
+          } else {
+            e = mid - 1;
+          }
+        }
+        return result;
+      }
+
+      let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+      console.log(solution(3, arr));
+    </script>
+  </body>
+</html>

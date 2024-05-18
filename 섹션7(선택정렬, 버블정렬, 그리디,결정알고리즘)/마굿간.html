@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function count(stable, dist) {
+        let ep = stable[0];
+        let count = 1;
+        for (let i = 0; i < stable.length; i++) {
+          if (stable[i] - ep >= dist) {
+            count++;
+            ep = stable[i];
+          }
+        }
+        return count;
+      }
+      function solution(c, stable) {
+        stable.sort((a, b) => a - b);
+        let answer;
+        console.log(stable);
+        let s = 1;
+        let e = stable[stable.length - 1];
+        while (s <= e) {
+          let mid = parseInt((s + e) / 2);
+
+          if (count(stable, mid) >= c) {
+            answer = mid;
+            s = mid + 1;
+          } else {
+            e = mid - 1;
+          }
+        }
+        return answer;
+      }
+
+      let arr = [1, 2, 8, 4, 9];
+      console.log(solution(3, arr));
+    </script>
+  </body>
+</html>
