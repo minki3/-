@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n) {
+        let answer = "";
+        function DFS(number) {
+          if (number === 0) {
+            return;
+          } else {
+            let result = number % 2;
+            let a = parseInt(number / 2);
+            DFS(a);
+            answer += result;
+          }
+        }
+
+        DFS(n);
+        return answer;
+      }
+
+      console.log(solution(11));
+    </script>
+  </body>
+</html>
