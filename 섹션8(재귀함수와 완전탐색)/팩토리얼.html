@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n) {
+        let answer;
+        let sum = 1;
+
+        function DFS(L) {
+          if (L === n) {
+            answer = sum;
+          } else {
+            let clac = n - L;
+            sum = sum * clac;
+            DFS(L + 1);
+          }
+        }
+
+        DFS(0);
+        return answer;
+      }
+
+      console.log(solution(8));
+    </script>
+  </body>
+</html>
